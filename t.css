@@ -1,1 +1,66 @@
+/* =========================================
+   VARIABLES & RESET (Charte Transac Express)
+   ========================================= */
+:root {
+    --primary: #E30613; /* Rouge Transac */
+    --primary-hover: #b80510;
+    --secondary: #2B2D42; /* Gris Anthracite */
+    --background: #ffffff;
+    --foreground: #020817;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --border: #e2e8f0;
+    --radius: 0.5rem;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
 
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+
+body { background-color: #f8fafc; color: var(--foreground); line-height: 1.5; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
+header { background: var(--background); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+/* =========================================
+   COMPOSANTS UI (Style Shadcn)
+   ========================================= */
+/* Boutons */
+.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius); font-weight: 500; font-size: 0.9rem; padding: 0.5rem 1rem; cursor: pointer; transition: all 0.2s; border: none; height: 40px; }
+.btn-primary { background-color: var(--primary); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-outline { background-color: transparent; border: 1px solid var(--border); color: var(--foreground); }
+.btn-outline:hover { background-color: var(--muted); }
+
+/* Cartes (Cards) */
+.card { background: var(--background); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 24px; }
+.card-title { font-size: 1.5rem; font-weight: 600; color: var(--secondary); margin-bottom: 5px; }
+.card-description { font-size: 0.9rem; color: var(--muted-foreground); margin-bottom: 20px; }
+
+/* Formulaires & Inputs */
+.label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 8px; color: var(--foreground); }
+.input { width: 100%; height: 40px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--background); padding: 0 12px; font-size: 0.9rem; transition: border-color 0.2s; margin-bottom: 16px; }
+.input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(227, 6, 19, 0.1); }
+
+/* Onglets (Tabs) */
+.tabs-list { display: flex; background: var(--muted); padding: 4px; border-radius: var(--radius); margin-bottom: 20px; }
+.tab-trigger { flex: 1; text-align: center; padding: 6px 12px; font-size: 0.875rem; font-weight: 500; border-radius: 0.25rem; cursor: pointer; color: var(--muted-foreground); transition: all 0.2s; }
+.tab-trigger.active { background: var(--background); color: var(--foreground); box-shadow: var(--shadow-sm); }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+
+/* Alertes (Messages de validation) */
+.alert { padding: 16px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 16px; font-size: 0.9rem; }
+.alert-error { border-color: #f87171; background-color: #fef2f2; color: #991b1b; }
+.alert-success { border-color: #4ade80; background-color: #f0fdf4; color: #166534; }
+.alert-info { border-left: 4px solid var(--primary); background-color: var(--muted); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
