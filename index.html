@@ -3,38 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur Denormandie | Transac Express</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Mentions Légales | Transac Express</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* =========================================
+           CSS INTÉGRÉ (Design System Exact)
+           ========================================= */
+        :root {
+            --primary: #E30613;
+            --primary-hover: #c40510;
+            --secondary: #2B2D42;
+            --bg-light: #F8F9FA;
+            --text-main: #374151;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-main); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Navigation & Top Bar (Identique sur tout le site) */
+        .top-bar { background-color: #1F2937; color: white; padding: 0.5rem 1rem; font-size: 0.875rem; display: none; }
+        @media (min-width: 768px) { .top-bar { display: block; } }
+        .top-bar-inner { max-width: 80rem; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: white; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+        .top-bar a:hover { color: var(--primary); }
+
+        header { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+        .nav-inner { max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; height: 5rem; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1.2rem; border-radius: var(--radius); font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; font-size: 0.95rem; }
+        .btn-primary { background-color: var(--primary); color: white; }
+        .btn-primary:hover { background-color: var(--primary-hover); }
+
+        /* Hero Section */
+        .hero { background-color: var(--secondary); padding: 4rem 1.5rem; text-align: center; color: white; }
+        .hero-icon-box { display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; background-color: var(--primary); border-radius: 1rem; margin-bottom: 1.5rem; }
+        .hero h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; }
+        @media (min-width: 640px) { .hero h1 { font-size: 2.5rem; } }
+        .hero p { color: #D1D5DB; font-size: 1.125rem; max-width: 42rem; margin: 0 auto; }
+
+        /* Contenu et Cartes */
+        .content-container { max-width: 56rem; margin: 3rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+        .card { background: white; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden; }
+        .card-header { padding: 1.5rem 1.5rem 0.5rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .card-title { font-size: 1.25rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; gap: 0.75rem; margin: 0; }
+        .card-icon { color: var(--primary); width: 24px; height: 24px; }
+        .card-content { padding: 1.5rem; color: var(--text-muted); }
+        
+        /* Éléments internes des cartes */
+        .info-box { background-color: var(--bg-light); border-radius: var(--radius); padding: 1.5rem; margin: 1rem 0; }
+        .info-box p { margin: 0; }
+        .info-box ul { list-style: none; padding: 0; margin-top: 0.5rem; }
+        .info-box li { margin-bottom: 0.25rem; }
+        
+        .section-subtitle { font-weight: 600; color: var(--secondary); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.125rem; }
+        .contact-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); }
+        .contact-item i { color: var(--primary); width: 16px; height: 16px; }
+
+        .ul-disc { padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem; }
+        .ul-disc li { margin-bottom: 0.25rem; }
+        
+        .text-center { text-align: center; }
+        .text-sm { font-size: 0.875rem; }
+        .mt-8 { margin-top: 2rem; }
+    </style>
 </head>
 <body>
 
     <div class="top-bar">
         <div class="top-bar-inner">
             <div style="display: flex; gap: 1.5rem;">
-                <a href="tel:0557751010"><i data-lucide="phone" style="width: 16px;"></i> 05 57 75 10 10</a>
-                <a href="mailto:contact@transacexpress.com"><i data-lucide="mail" style="width: 16px;"></i> contact@transacexpress.com</a>
+                <a href="tel:0557751010"><i data-lucide="phone" style="width: 14px; height: 14px;"></i> 05 57 75 10 10</a>
+                <a href="mailto:contact@transacexpress.com"><i data-lucide="mail" style="width: 14px; height: 14px;"></i> contact@transacexpress.com</a>
             </div>
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <i data-lucide="map-pin" style="width: 16px;"></i> Pauillac, Médoc
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Pauillac, Médoc
             </div>
         </div>
     </div>
 
     <header>
         <div class="nav-inner">
-            <a href="index.html" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
-                <svg width="44" height="22" viewBox="0 0 24 24" fill="none" style="opacity: 0.7;">
+            <a href="index.html" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="44" height="22" viewBox="0 0 24 24" fill="none" style="opacity: 0.8;">
                     <path d="M3 10.5L12 3L21 10.5V21H15V15H9V21H3V10.5Z" fill="#9CA3AF" stroke="#9CA3AF" stroke-width="0.5"/>
                 </svg>
-                <span style="color: #E30613; font-size: 24px; font-weight: 900; letter-spacing: -0.5px; line-height: 1;">TRANSAC</span>
-                <span style="color: #9CA3AF; font-size: 10px; font-weight: 600; letter-spacing: 3px;">EXPRESS</span>
+                <span style="color: var(--primary); font-size: 20px; font-weight: 900; letter-spacing: -0.5px; line-height: 1;">TRANSAC</span>
+                <span style="color: #9CA3AF; font-size: 9px; font-weight: 600; letter-spacing: 3px;">EXPRESS</span>
             </a>
 
-            <nav>
+            <nav style="display: none; @media(min-width: 1024px){display: block;}">
                 <ul class="nav-links">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="investir-pauillac.html">Investir à Pauillac</a></li>
+                    <li><a href="biens-a-vendre.html">Biens à vendre</a></li>
+                    <li><a href="simulateur.html">Simulateur Denormandie</a></li>
+                    <li><a href="mentions-legales.html" class="active">Mentions légales</a></li>
+                </ul>
+            </nav>
+
+            <a href="simulateur.html" class="btn btn-primary">Simuler mon projet</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-icon-box">
+            <i data-lucide="file-text" style="color: white; width: 32px; height: 32px;"></i>
+        </div>
+        <h1>Mentions légales & RGPD</h1>
+        <p>Informations légales relatives au site transac-express.fr</p>
+    </section>
+
+    <main class="content-container">
+        
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="building-2" class="card-icon"></i> Éditeur du site</h2>
+            </div>
+            <div class="card-content">
+                <p>Le présent site est édité par :</p>
+                
+                <div class="info-box">
+                    <p style="font-weight: 600; color: var(--secondary); font-size: 1.125rem; margin-bottom: 1rem;">MEDOC INVESTISSEMENT</p>
+                    <ul>
+                        <li><strong>Forme juridique :</strong> SARL au capital de 1 440 000 €</li>
+                        <li><strong>RCS :</strong> Bordeaux 477 710 222</li>
+                        <li><strong>N° TVA intracommunautaire :</strong> FR07477710222</li>
+                        <li><strong>Siège social :</strong> 4 rue Albert 1er, 33250 Pauillac</li>
+                        <li><strong>Directeurs de la publication :</strong> Brice DESCUDET – Jean-Fernand LIAUD</li>
+                    </ul>
+                </div>
+
+                <h4 class="section-subtitle">Contact</h4>
+                <div class="contact-list">
+                    <div class="contact-item"><i data-lucide="phone"></i> <span>05 57 75 10 10</span></div>
+                    <div class="contact-item"><i data-lucide="mail"></i> <span>contact@transacexpress.com</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="server" class="card-icon"></i> Hébergeur</h2>
+            </div>
+            <div class="card-content">
+                <p>Le site transac-express.fr est hébergé par :</p>
+                <div class="info-box">
+                    <p style="font-weight: 600; color: var(--secondary); margin-bottom: 0.5rem;">Google Ireland Limited</p>
+                    <ul>
+                        <li><strong>Forme :</strong> Société de droit irlandais (n° 368047)</li>
+                        <li><strong>Adresse :</strong> Gordon House, Barrow Street, Dublin 4, Irlande</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="shield" class="card-icon"></i> Propriété intellectuelle</h2>
+            </div>
+            <div class="card-content">
+                <p style="margin-bottom: 1rem;">La société MEDOC INVESTISSEMENT est propriétaire des droits de propriété intellectuelle sur le site www.transacexpress.com et les éléments qui le composent, notamment les textes, illustrations, photographies et informations.</p>
+                <p>Toute reproduction, communication au public ou réutilisation de tout ou partie du site, par quelque moyen et sous quelque forme que ce soit, est interdite, sous peine de contrefaçon, sauf accord exprès et préalable de la société MEDOC INVESTISSEMENT.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="file-text" class="card-icon"></i> Protection des données personnelles (RGPD)</h2>
+            </div>
+            <div class="card-content">
+                <h4 class="section-subtitle" style="margin-top: 0;">Responsable du traitement</h4>
+                <p style="margin-bottom: 1.5rem;">TRANSAC EXPRESS, représentée par son gérant, est responsable du traitement des données personnelles collectées sur ce site.</p>
+
+                <h4 class="section-subtitle">Données collectées</h4>
+                <p>Nous collectons les données suivantes dans le cadre de nos activités :</p>
+                <ul class="ul-disc">
+                    <li>Nom et prénom</li>
+                    <li>Adresse email</li>
+                    <li>Numéro de téléphone</li>
+                    <li>Données de navigation (cookies)</li>
+                    <li>Informations relatives à votre projet immobilier</li>
+                </ul>
+
+                <h4 class="section-subtitle">Finalités du traitement</h4>
+                <p>Vos données sont collectées pour :</p>
+                <ul class="ul-disc">
+                    <li>Répondre à vos demandes de contact</li>
+                    <li>Vous proposer des biens correspondant à vos critères</li>
+                    <li>Vous informer de nos actualités (avec votre consentement)</li>
+                    <li>Améliorer nos services</li>
+                </ul>
+
+                <h4 class="section-subtitle">Base légale</h4>
+                <p>Le traitement de vos données est fondé sur :</p>
+                <ul class="ul-disc">
+                    <li>Votre consentement</li>
+                    <li>L'exécution de mesures précontractuelles</li>
+                    <li>Notre intérêt légitime à développer notre activité</li>
+                </ul>
+
+                <h4 class="section-subtitle">Durée de conservation</h4>
+                <p style="margin-bottom: 1.5rem;">Vos données sont conservées pendant une durée de 3 ans à compter de votre dernier contact avec notre société, ou jusqu'au retrait de votre consentement.</p>
+
+                <h4 class="section-subtitle">Vos droits</h4>
+                <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+                <ul class="ul-disc">
+                    <li><strong>Droit d'accès :</strong> obtenir la confirmation du traitement de vos données</li>
+                    <li><strong>Droit de rectification :</strong> demander la correction de données inexactes</li>
+                    <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données</li>
+                    <li><strong>Droit à la limitation :</strong> demander la limitation du traitement</li>
+                    <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
+                    <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
+                </ul>
+                <p style="margin-bottom: 1.5rem;">Pour exercer ces droits, contactez-nous à : <strong style="color: var(--secondary);">contact@transac-express.fr</strong></p>
+
+                <h4 class="section-subtitle">Réclamation</h4>
+                <p>Si vous estimez que le traitement de vos données constitue une violation du RGPD, vous pouvez introduire une réclamation auprès de la CNIL :</p>
+                <div class="info-box">
+                    <p style="font-weight: 500; color: var(--text-main);">Commission Nationale de l'Informatique et des Libertés</p>
+                    <p>3 Place de Fontenoy, TSA 80715</p>
+                    <p>75334 Paris Cedex 07</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">www.cnil.fr</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="file-text" class="card-icon"></i> Liens vers d'autres sites</h2>
+            </div>
+            <div class="card-content">
+                <p style="margin-bottom: 1rem;">La mise en place d'un lien entre le site www.transacexpress.com et un autre site web est interdite, sauf accord exprès et préalable de la société MEDOC INVESTISSEMENT.</p>
+                <p>En tout état de cause, la société MEDOC INVESTISSEMENT exclut toute responsabilité quant aux contenus de tout site web ayant établi un lien avec le site www.transacexpress.com, y compris avec son accord, dès lors qu'elle n'est pas en mesure d'en contrôler les contenus.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="shield" class="card-icon"></i> Responsabilité</h2>
+            </div>
+            <div class="card-content">
+                <p style="margin-bottom: 1rem;">La société MEDOC INVESTISSEMENT s'efforce d'assurer l'exactitude des informations diffusées sur le site www.transacexpress.com. Cependant, ces informations sont publiées à titre indicatif et sont par nature évolutives, de sorte que les visiteurs du site doivent demeurer vigilants et se renseigner le cas échéant. Par conséquent, l'utilisation de ces informations est faite sous l'entière responsabilité des visiteurs du site.</p>
+                <p>Le site www.transacexpress.com est accessible via des réseaux de communication électroniques ouverts, notamment internet, sur lesquels la société MEDOC INVESTISSEMENT n'exerce aucun contrôle. De ce fait, la société MEDOC INVESTISSEMENT exclut toute responsabilité en cas de dommage lié à l'utilisation de ces réseaux ou en cas d'indisponibilité du site pour quelque cause que ce soit.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="file-text" class="card-icon"></i> Droit applicable et attribution de juridiction</h2>
+            </div>
+            <div class="card-content">
+                <p>Tout litige en relation avec l'utilisation du site www.transacexpress.com est soumis au droit français et aux tribunaux français.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title"><i data-lucide="file-text" class="card-icon"></i> Politique de cookies</h2>
+            </div>
+            <div class="card-content">
+                <p style="margin-bottom: 1rem;">Ce site utilise des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte stockés sur votre appareil.</p>
+                
+                <h4 class="section-subtitle">Types de cookies utilisés</h4>
+                <ul class="ul-disc">
+                    <li><strong>Cookies essentiels :</strong> nécessaires au fonctionnement du site</li>
+                    <li><strong>Cookies analytiques :</strong> pour comprendre comment les visiteurs utilisent le site</li>
+                </ul>
+
+                <p style="margin-top: 1rem;">Vous pouvez configurer votre navigateur pour refuser les cookies. Toutefois, certaines fonctionnalités du site pourraient ne plus être disponibles.</p>
+            </div>
+        </div>
+
+        <div class="text-center text-sm text-muted mt-8 mb-8">
+            Dernière mise à jour : Mars 2024
+        </div>
+    </main>
+
+    <script>
+        // Initialisation des icônes
+        lucide.createIcons();
+    </script>
+</body>
+</html>                    <li><a href="investir-pauillac.html">Investir à Pauillac</a></li>
                     <li><a href="biens-a-vendre.html">Biens à vendre</a></li>
                     <li><a href="simulateur.html" class="active">Simulateur Denormandie</a></li>
                     <li><a href="mentions-legales.html">Mentions légales</a></li>
