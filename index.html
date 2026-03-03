@@ -3,84 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur Denormandie | Transac Express</title>
+    <title>Transac Express | Marchand de biens à Pauillac</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
-                <svg width="60" height="40" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,40 L10,20 L25,5 L40,20 L40,40 Z" fill="none" stroke="#7f8c8d" stroke-width="4"/>
-                    <path d="M30,40 L30,20 L45,5 L60,20 L60,40 Z" fill="none" stroke="#95a5a6" stroke-width="4"/>
-                    <path d="M50,40 L50,20 L65,5 L80,20 L80,40 Z" fill="none" stroke="#bdc3c7" stroke-width="4"/>
-                    <path d="M70,40 L70,20 L85,5 L100,20 L100,40 Z" fill="none" stroke="#ecf0f1" stroke-width="4"/>
-                    <path d="M5,50 Q50,60 95,50" fill="none" stroke="#7f8c8d" stroke-width="3"/>
-                </svg>
-                <span style="color: #E30613; font-size: 20px; font-weight: 900; letter-spacing: 1px; line-height: 1;">TRANSAC</span>
-                <span style="color: #7f8c8d; font-size: 10px; font-weight: bold; letter-spacing: 3px;">EXPRESS</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="biens-a-vendre.html">Biens à Vendre</a></li>
-                    <li><a href="investir-pauillac.html">Investir à Pauillac</a></li>
-                    <li><a href="simulateur.html" class="active">Simulateur</a></li>
-                </ul>
-            </nav>
+    <section style="position: relative; min-height: 90vh; display: flex; align-items: center;">
+        <div style="position: absolute; inset: 0; z-index: -1;">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80" alt="Pierre bordelaise rénovée" style="width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(43, 45, 66, 0.95), rgba(43, 45, 66, 0.8), transparent);"></div>
         </div>
-    </header>
 
-    <main class="container" style="padding: 40px 20px;">
-        <div style="max-width: 900px; margin: 0 auto;">
-            
-            <h1 style="color: var(--secondary); font-size: 2.5rem; text-align: center; margin-bottom: 10px;">Simulateur d'Investissement</h1>
-            <p style="text-align: center; color: var(--muted-foreground); margin-bottom: 40px;">Évaluez la rentabilité et la défiscalisation de votre projet Denormandie.</p>
-
-            <div class="card">
-                <div class="tabs-list">
-                    <div class="tab-trigger active" onclick="switchTab('denormandie')">Défiscalisation Denormandie</div>
-                    <div class="tab-trigger" onclick="switchTab('pret')">Simulation de Prêt</div>
+        <div class="max-w-7xl animate-fade-in-up" style="padding-top: 5rem; padding-bottom: 5rem; width: 100%;">
+            <div style="max-width: 42rem;">
+                <span style="display: inline-block; background-color: var(--primary); color: white; padding: 0.375rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; margin-bottom: 1.5rem;">
+                    Marchand de biens à Pauillac
+                </span>
+                <h1 style="font-size: clamp(2.25rem, 5vw, 3.75rem); font-weight: 700; color: white; line-height: 1.1; margin-bottom: 1.5rem;">
+                    Investissez dans la pierre
+                    <span class="text-primary"> médocaine</span>
+                </h1>
+                <p style="font-size: 1.25rem; color: #d1d5db; margin-bottom: 2rem; line-height: 1.625;">
+                    Transac Express vous accompagne dans vos investissements immobiliers à Pauillac. 
+                    Bénéficiez du dispositif <strong style="color: white;">Denormandie</strong> et 
+                    réduisez vos impôts jusqu'à <strong class="text-primary">21%</strong>.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="simulateur.html" class="btn btn-lg btn-primary" style="width: 100%; @media(min-width: 640px){width: auto;}">
+                        <i data-lucide="calculator" style="margin-right: 0.5rem; width: 20px; height: 20px;"></i>
+                        Simuler mon investissement
+                    </a>
+                    <a href="biens-a-vendre.html" class="btn btn-lg btn-outline" style="width: 100%; @media(min-width: 640px){width: auto;}">
+                        Voir les biens disponibles
+                        <i data-lucide="arrow-right" style="margin-left: 0.5rem; width: 20px; height: 20px;"></i>
+                    </a>
                 </div>
-
-                <div id="tab-denormandie" class="tab-content active">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                        
-                        <div>
-                            <h2 class="card-title">Paramètres du projet</h2>
-                            <p class="card-description">Saisissez les montants de l'opération.</p>
-                            
-                            <label class="label">Prix d'achat du bien (€)</label>
-                            <input type="number" id="prix" class="input" value="150000">
-
-                            <label class="label">Frais de notaire estimés (€)</label>
-                            <input type="number" id="notaire" class="input" value="12000">
-
-                            <label class="label">Montant des travaux TTC (€)</label>
-                            <input type="number" id="travaux" class="input" value="60000">
-
-                            <label class="label">Surface Habitable (m²)</label>
-                            <input type="number" id="surface" class="input" value="65">
-
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="calculerDenormandie()">Calculer l'éligibilité</button>
-                        </div>
-
-                        <div id="result-container" style="background: var(--muted); padding: 20px; border-radius: var(--radius);">
-                            <p style="color: var(--muted-foreground); text-align: center; margin-top: 50px;">Remplissez le formulaire pour voir les résultats s'afficher ici.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="tab-pret" class="tab-content">
-                    <h2 class="card-title">Bientôt disponible</h2>
-                    <p class="card-description">Le module de calcul des mensualités arrive très vite.</p>
-                </div>
-
             </div>
         </div>
-    </main>
 
-    <script src="js/simulateur.js"></script>
+        <div class="card" style="display: none; position: absolute; bottom: 2rem; right: 2rem; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); box-shadow: var(--shadow-2xl); @media(min-width: 1280px){display: block;}">
+            <div class="card-content">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center">
+                        <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary);">15+</div>
+                        <div style="font-size: 0.875rem; color: var(--muted-foreground);">Années d'expérience</div>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary);">120+</div>
+                        <div style="font-size: 0.875rem; color: var(--muted-foreground);">Biens rénovés</div>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary);">98%</div>
+                        <div style="font-size: 0.875rem; color: var(--muted-foreground);">Clients satisfaits</div>
+                    </div>
+                    <div class="text-center">
+                        <div style="font-size: 1.875rem; font-weight: 700; color: var(--primary);">21%</div>
+                        <div style="font-size: 0.875rem; color: var(--muted-foreground);">Réduction d'impôt max</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light" style="padding: 5rem 0;">
+        <div class="max-w-7xl animate-fade-in-up">
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <span class="text-primary font-medium" style="display: block; margin-bottom: 1rem;">Notre expertise</span>
+                <h2 style="font-size: 2.25rem; font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">
+                    Un accompagnement complet
+                </h2>
+                <p class="text-gray-600" style="max-width: 42rem; margin: 0 auto; font-size: 1.125rem;">
+                    De la recherche du bien idéal à sa mise en location, nous gérons l'intégralité de votre projet d'investissement.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="card card-hover">
+                    <div class="card-content">
+                        <div class="icon-box">
+                            <i data-lucide="home" style="color: var(--primary); transition: stroke 0.3s;"></i>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.75rem;">Acquisition stratégique</h3>
+                        <p class="text-gray-600">Identification de biens à fort potentiel de valorisation dans le Médoc</p>
+                    </div>
+                </div>
+                <div class="card card-hover">
+                    <div class="card-content">
+                        <div class="icon-box">
+                            <i data-lucide="hammer" style="color: var(--primary); transition: stroke 0.3s;"></i>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.75rem;">Rénovation complète</h3>
+                        <p class="text-gray-600">Travaux de qualité avec amélioration énergétique garantie</p>
+                    </div>
+                </div>
+                <div class="card card-hover">
+                    <div class="card-content">
+                        <div class="icon-box">
+                            <i data-lucide="piggy-bank" style="color: var(--primary); transition: stroke 0.3s;"></i>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.75rem;">Défiscalisation Denormandie</h3>
+                        <p class="text-gray-600">Optimisation fiscale jusqu'à 21% de réduction d'impôt</p>
+                    </div>
+                </div>
+                <div class="card card-hover">
+                    <div class="card-content">
+                        <div class="icon-box">
+                            <i data-lucide="award" style="color: var(--primary); transition: stroke 0.3s;"></i>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--secondary); margin-bottom: 0.75rem;">Accompagnement premium</h3>
+                        <p class="text-gray-600">Suivi personnalisé de l'acquisition à la mise en location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 5rem 0; background: white;">
+        <div class="max-w-7xl animate-fade-in-up">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-primary font-medium" style="display: block; margin-bottom: 1rem;">Dispositif Denormandie</span>
+                    <h2 style="font-size: 2.25rem; font-weight: 700; color: var(--secondary); margin-bottom: 1.5rem;">
+                        Réduisez vos impôts en investissant dans l'ancien rénové
+                    </h2>
+                    <p class="text-gray-600" style="font-size: 1.125rem; margin-bottom: 2rem; line-height: 1.625;">
+                        Le dispositif Denormandie vous permet de bénéficier d'une réduction d'impôt significative 
+                        en investissant dans l'immobilier ancien à rénover, dans des villes comme Pauillac.
+                    </p>
+
+                    <div style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="flex items-center gap-4"><i data-lucide="check-circle-2" class="text-primary" style="min-width: 24px;"></i><span class="text-gray-700">Biens situés en zone éligible Denormandie</span></div>
+                        <div class="flex items-center gap-4"><i data-lucide="check-circle-2" class="text-primary" style="min-width: 24px;"></i><span class="text-gray-700">Travaux supérieurs à 25% du coût total</span></div>
+                        <div class="flex items-center gap-4"><i data-lucide="check-circle-2" class="text-primary" style="min-width: 24px;"></i><span class="text-gray-700">Amélioration énergétique de 30% minimum</span></div>
+                        <div class="flex items-center gap-4"><i data-lucide="check-circle-2" class="text-primary" style="min-width: 24px;"></i><span class="text-gray-700">Rentabilité locative optimisée</span></div>
+                    </div>
+
+                    <a href="simulateur.html" class="btn btn-lg btn-primary">
+                        Calculer ma réduction d'impôt
+                        <i data-lucide="arrow-right" style="margin-left: 0.5rem; width: 20px; height: 20px;"></i>
+                    </a>
+                </div>
+
+                <div style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Intérieur rénové" style="border-radius: 1rem; box-shadow: var(--shadow-2xl); width: 100%;">
+                    <div style="position: absolute; bottom: -2rem; left: -2rem; background: white; border-radius: 0.75rem; box-shadow: var(--shadow-xl); padding: 1.5rem; max-width: 20rem;">
+                        <div class="flex items-center gap-4" style="margin-bottom: 0.75rem;">
+                            <div style="width: 3rem; height: 3rem; background: rgba(227, 6, 19, 0.1); border-radius: 0.75rem; display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="trending-up" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);">21%</div>
+                                <div style="font-size: 0.875rem; color: var(--muted-foreground);">Réduction max</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--gray-600);">Sur 12 ans d'engagement locatif</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
