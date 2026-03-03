@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur Denormandie | Transac Express</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
+                <svg width="60" height="40" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,40 L10,20 L25,5 L40,20 L40,40 Z" fill="none" stroke="#7f8c8d" stroke-width="4"/>
+                    <path d="M30,40 L30,20 L45,5 L60,20 L60,40 Z" fill="none" stroke="#95a5a6" stroke-width="4"/>
+                    <path d="M50,40 L50,20 L65,5 L80,20 L80,40 Z" fill="none" stroke="#bdc3c7" stroke-width="4"/>
+                    <path d="M70,40 L70,20 L85,5 L100,20 L100,40 Z" fill="none" stroke="#ecf0f1" stroke-width="4"/>
+                    <path d="M5,50 Q50,60 95,50" fill="none" stroke="#7f8c8d" stroke-width="3"/>
+                </svg>
+                <span style="color: #E30613; font-size: 20px; font-weight: 900; letter-spacing: 1px; line-height: 1;">TRANSAC</span>
+                <span style="color: #7f8c8d; font-size: 10px; font-weight: bold; letter-spacing: 3px;">EXPRESS</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="biens-a-vendre.html">Biens à Vendre</a></li>
+                    <li><a href="investir-pauillac.html">Investir à Pauillac</a></li>
+                    <li><a href="simulateur.html" class="active">Simulateur</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 40px 20px;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            
+            <h1 style="color: var(--secondary); font-size: 2.5rem; text-align: center; margin-bottom: 10px;">Simulateur d'Investissement</h1>
+            <p style="text-align: center; color: var(--muted-foreground); margin-bottom: 40px;">Évaluez la rentabilité et la défiscalisation de votre projet Denormandie.</p>
+
+            <div class="card">
+                <div class="tabs-list">
+                    <div class="tab-trigger active" onclick="switchTab('denormandie')">Défiscalisation Denormandie</div>
+                    <div class="tab-trigger" onclick="switchTab('pret')">Simulation de Prêt</div>
+                </div>
+
+                <div id="tab-denormandie" class="tab-content active">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                        
+                        <div>
+                            <h2 class="card-title">Paramètres du projet</h2>
+                            <p class="card-description">Saisissez les montants de l'opération.</p>
+                            
+                            <label class="label">Prix d'achat du bien (€)</label>
+                            <input type="number" id="prix" class="input" value="150000">
+
+                            <label class="label">Frais de notaire estimés (€)</label>
+                            <input type="number" id="notaire" class="input" value="12000">
+
+                            <label class="label">Montant des travaux TTC (€)</label>
+                            <input type="number" id="travaux" class="input" value="60000">
+
+                            <label class="label">Surface Habitable (m²)</label>
+                            <input type="number" id="surface" class="input" value="65">
+
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="calculerDenormandie()">Calculer l'éligibilité</button>
+                        </div>
+
+                        <div id="result-container" style="background: var(--muted); padding: 20px; border-radius: var(--radius);">
+                            <p style="color: var(--muted-foreground); text-align: center; margin-top: 50px;">Remplissez le formulaire pour voir les résultats s'afficher ici.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-pret" class="tab-content">
+                    <h2 class="card-title">Bientôt disponible</h2>
+                    <p class="card-description">Le module de calcul des mensualités arrive très vite.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/simulateur.js"></script>
+</body>
+</html>
